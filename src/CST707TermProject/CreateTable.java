@@ -16,24 +16,26 @@ public class CreateTable extends jdbc_example {
 
     public String dbName = "dbo"; 
     public String url = "jdbc:sqlserver://CSCPROJECTS:1433;databaseName=Database Engine;DatabaseName=team4; user=team4;password=team4";
-    
+//    
     public static void CreateTable(){
         
     }
     
-    public void createAirportTable() throws SQLException {
+    public void createStudioTable() throws SQLException {
         
         
-        Connection conn = DriverManager.getConnection ( url, "team4", "team4" );
+        Connection conn = DriverManager.getConnection ("jdbc:mysql://localhost:3306/jjackson?user=jjackson&password=Amricap1");
         
-        String createString = "create table " + dbName +
-                              ".Airport " +
-                              "(AP_Intl_Code char(3) NOT NULL, " +
-                              "Airport_Name varchar(45) NULL, " +
-                              "Phone_# varchar(11) NULL, " +
-                              "Airport_City varchar(25) NULL, " +
-                              "Airport_Country varchar(25) NULL, " +
-                              "PRIMARY KEY (AP_Intl_Code))";
+        String createString = "CREATE  TABLE IF NOT EXISTS `mydb`.`Studio` (" +
+                                "`idStudio` INT NOT NULL ," +
+                                "`studioName` VARCHAR(45) NULL ," +
+                                "`dateFounded` DATE NULL ," +
+                                "`Founder` VARCHAR(45) NULL ," +
+                                "`WebsiteURL` VARCHAR(45) NULL ," +
+                                "`Emp Count` VARCHAR(45) NULL ," +
+                                "PRIMARY KEY (`idStudio`) ," +
+                                "UNIQUE INDEX `idStudio_UNIQUE` (`idStudio` ASC) )" +
+                              "ENGINE = InnoDB;";
         java.sql.Statement stmt = null;
         
     try {
