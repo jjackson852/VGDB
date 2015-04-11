@@ -30,20 +30,21 @@ public class jdbc_example
    { 
     System.out.println ( "ERROR: " + e.getMessage ( ) ); 
    }
-//  CreateTable tableCreator = new CreateTable();
+  CreateTable tableCreator = new CreateTable();
 //  PopulateTable tablePopulator = new PopulateTable();
 //  QueryGenerator queryGenerator = new QueryGenerator();
 //  
-//  tableCreator.createStudioTable();
-//  tableCreator.createAirlineTable();
-//  tableCreator.createPlaneTable();
-//  tableCreator.createFlightTable();
-//  tableCreator.createCustomerTable();
-//  tableCreator.createPmtMethodTable();
-//  tableCreator.createReservationTable();
-//  tableCreator.createFFMembershipTable();
-//  tableCreator.createFlightLegTable();
-//  tableCreator.createPreferencesTable();
+  tableCreator.createStudioTable();
+  tableCreator.createEngineTable();
+  tableCreator.createPublisherTable();
+  tableCreator.createFranchiseTable();
+  tableCreator.createGameTable();
+  tableCreator.createPlatformTable();
+  tableCreator.createEmployeeTable();
+  tableCreator.createTitleTable();
+  tableCreator.createReviewTable();
+  tableCreator.createGame_has_PlatformTable();
+  tableCreator.createGame_has_EmployeeTable();
 //  
 //  tablePopulator.populateAirportTable();
 //  tablePopulator.populateAirlineTable();
