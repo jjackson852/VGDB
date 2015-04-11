@@ -34,7 +34,7 @@ public class jdbc_example
 //  PopulateTable tablePopulator = new PopulateTable();
 //  QueryGenerator queryGenerator = new QueryGenerator();
 //  
-//  tableCreator.createAirportTable();
+//  tableCreator.createStudioTable();
 //  tableCreator.createAirlineTable();
 //  tableCreator.createPlaneTable();
 //  tableCreator.createFlightTable();
