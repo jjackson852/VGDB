@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package CSC315TermProject;
+package CST707TermProject;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
