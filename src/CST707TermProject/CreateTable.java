@@ -137,7 +137,7 @@ public class CreateTable extends jdbc_example {
         String createString = "CREATE  TABLE IF NOT EXISTS "+ dbName +".`Game` (" +
                                 "`idGame` INT NOT NULL ," +
                                 "`gameName` VARCHAR(45) NULL ," +
-                                "`Release Date` DATE NULL ," +
+                                "`Release Date` VARCHAR(15) NULL ," +
                                 "`Genre` VARCHAR(45) NULL ," +
                                 "`ParentalRating` VARCHAR(45) NULL ," +
                                 "`Studio_idStudio` INT NOT NULL ," +

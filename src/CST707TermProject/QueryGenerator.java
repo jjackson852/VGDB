@@ -13,7 +13,7 @@ import java.sql.SQLException;
 public class QueryGenerator extends jdbc_example {
 
     private String dbName = "jjackson"; 
-    private String url = "jdbc:mysql://sun.cs.lsus.edu;databaseName=Database Engine;DatabaseName=team4; user=team4;password=team4";
+    private String url = "jdbc:mysql://localhost:3306/jjackson?user=jjackson&password=Amricap1";
     
     public static void QueryGenerator(){
         
@@ -189,7 +189,7 @@ public class QueryGenerator extends jdbc_example {
     
     public void queryNumber5() throws SQLException{
         
-        Connection conn = DriverManager.getConnection ( url, "team4", "team4" );
+        Connection conn = DriverManager.getConnection (url);
         
         
         String createString = "select Flight_No"
@@ -226,15 +226,9 @@ public class QueryGenerator extends jdbc_example {
     
      public void queryNumber6() throws SQLException{
         
-        Connection conn = DriverManager.getConnection ( url, "team4", "team4" );
+        Connection conn = DriverManager.getConnection ("jdbc:mysql://localhost:3306/jjackson?user=jjackson&password=Amricap1");
         
-        int count = 0;
-        
-        String createString = "select Flight_No, Seats_Avail"
-                + " FROM Flight"
-                + " WHERE Dept_AP_Intl_Code = 'DFW'"
-                + " AND Arr_AP_Intl_Code = 'LAX'"
-                + " AND Seats_Avail > 0";
+        String createString = "SELECT * FROM jjackson.Game";
                              
         java.sql.Statement stmt = null;
         
@@ -243,15 +237,19 @@ public class QueryGenerator extends jdbc_example {
         ResultSet rs = stmt.executeQuery(createString);
          System.out.println("**********************************************************");
          System.out.println("**********************************************************");
-         System.out.println("\n\n\t\tQuery#6");
+         System.out.println("QueryTest");
          System.out.println("----------------------------------------------------------");
-         System.out.println("Flight Number\tAvailable Seats");
+         System.out.println("* From Game Table");
          System.out.println("----------------------------------------------------------");
         while (rs.next()) {
-            String FlightNo = rs.getString("Flight_No");
-            String availSeats = rs.getString("Seats_Avail");
-           
-            System.out.println(FlightNo + "\t\t" + availSeats);
+            String gameName = rs.getString("gameName");
+            String releaseDate = rs.getString("ReleaseDate");
+            String genre = rs.getString("Genre");
+            String rating = rs.getString("ParentalRating");
+            String idStudio = rs.getString("Studio_idStudio");
+            String idEngine = rs.getString("Engine_idEngine");
+            String idPublisher = rs.getString("Publisher_idPublisher");
+            String idFranchise = rs.getString("Franchise_idFranchise");
             }
         
         }
