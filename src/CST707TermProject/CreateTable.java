@@ -27,7 +27,7 @@ public class CreateTable extends jdbc_example {
         Connection conn = DriverManager.getConnection (url);
         
         String createString = "CREATE  TABLE IF NOT EXISTS "+ dbName +".`Studio` (" +
-                                "`idStudio` INT NOT NULL ," +
+                                "`idStudio` INT NOT NULL AUTO_INCREMENT ," +
                                 "`studioName` VARCHAR(45) NULL ," +
                                 "`dateFounded` DATE NULL ," +
                                 "`Founder` VARCHAR(45) NULL ," +
@@ -54,7 +54,7 @@ public class CreateTable extends jdbc_example {
         Connection conn = DriverManager.getConnection (url);
         
         String createString = "CREATE  TABLE IF NOT EXISTS "+ dbName +".`Engine` (" +
-                                "`idEngine` INT NOT NULL ," +
+                                "`idEngine` INT NOT NULL AUTO_INCREMENT ," +
                                 "`engineName` VARCHAR(45) NULL ," +
                                 "`initialReleaseDate` DATE NULL ," +
                                 "`isCommercial` TINYINT(1) NULL ," +
@@ -82,7 +82,7 @@ public class CreateTable extends jdbc_example {
         Connection conn = DriverManager.getConnection (url);
         
         String createString = "CREATE  TABLE IF NOT EXISTS "+ dbName +".`Publisher` (" +
-                                "`idPublisher` INT NOT NULL ," +
+                                "`idPublisher` INT NOT NULL AUTO_INCREMENT ," +
                                 "`publisherName` VARCHAR(45) NULL ," +
                                 "`dateFounded` DATE NULL ," +
                                 "`websiteURL` VARCHAR(45) NULL ," +
@@ -108,7 +108,7 @@ public class CreateTable extends jdbc_example {
         Connection conn = DriverManager.getConnection (url);
         
         String createString = "CREATE  TABLE IF NOT EXISTS "+ dbName +".`Franchise` (" +
-                                "`idFranchise` INT NOT NULL ," +
+                                "`idFranchise` INT NOT NULL AUTO_INCREMENT ," +
                                 "`franchiseName` VARCHAR(45) NULL ," +
                                 "`GameCount` INT NULL ," +
                                 "`Owner` VARCHAR(45) NULL ," +
@@ -135,7 +135,7 @@ public class CreateTable extends jdbc_example {
         Connection conn = DriverManager.getConnection (url);
         
         String createString = "CREATE  TABLE IF NOT EXISTS "+ dbName +".`Game` (" +
-                                "`idGame` INT NOT NULL ," +
+                                "`idGame` INT NOT NULL AUTO_INCREMENT ," +
                                 "`gameName` VARCHAR(45) NULL ," +
                                 "`Release Date` VARCHAR(15) NULL ," +
                                 "`Genre` VARCHAR(45) NULL ," +
@@ -182,7 +182,7 @@ public class CreateTable extends jdbc_example {
         Connection conn = DriverManager.getConnection (url);
         
         String createString = "CREATE  TABLE IF NOT EXISTS "+ dbName +".`Platform` (" +
-                                "`idPlatform` INT NOT NULL ," +
+                                "`idPlatform` INT NOT NULL AUTO_INCREMENT ," +
                                 "`platformName` VARCHAR(45) NULL ," +
                                 "`operatingSystem` VARCHAR(45) NULL ," +
                                 "`Owner` VARCHAR(45) NULL ," +
@@ -208,7 +208,7 @@ public class CreateTable extends jdbc_example {
         Connection conn = DriverManager.getConnection (url);
         
         String createString = "CREATE  TABLE IF NOT EXISTS "+ dbName +".`Employee` (" +
-                                "`idEmployee` INT NOT NULL ," +
+                                "`idEmployee` INT NOT NULL AUTO_INCREMENT ," +
                                 "`firstName` VARCHAR(45) NULL ," +
                                 "`lastName` VARCHAR(45) NULL ," +
                                 "PRIMARY KEY (`idEmployee`) ," +
@@ -233,7 +233,7 @@ public class CreateTable extends jdbc_example {
         Connection conn = DriverManager.getConnection (url);
         
         String createString = "CREATE  TABLE IF NOT EXISTS "+ dbName +".`Title` (" +
-                                "`idTitle` INT NOT NULL ," +
+                                "`idTitle` INT NOT NULL AUTO_INCREMENT ," +
                                 "`titleName` VARCHAR(45) NULL ," +
                                 "PRIMARY KEY (`idTitle`) ," +
                                 "UNIQUE INDEX `idTitle_UNIQUE` (`idTitle` ASC) )" +
@@ -258,7 +258,7 @@ public class CreateTable extends jdbc_example {
         Connection conn = DriverManager.getConnection (url);
         
         String createString = "CREATE  TABLE IF NOT EXISTS "+ dbName +".`Review` (" +
-                                "`idReview` INT NOT NULL ," +
+                                "`idReview` INT NOT NULL AUTO_INCREMENT ," +
                                 "`Rating` DECIMAL(4,3) NULL ," +
                                 "`Subject` VARCHAR(45) NULL ," +
                                 "`Content` LONGTEXT NULL ," +
