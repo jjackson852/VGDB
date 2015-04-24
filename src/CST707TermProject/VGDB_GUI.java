@@ -12,6 +12,8 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.Vector;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
@@ -26,6 +28,21 @@ public class VGDB_GUI extends javax.swing.JFrame {
      */
     public VGDB_GUI() {
         initComponents();
+        
+//        jTable1.getSelectionModel().addListSelectionListener(
+//        new ListSelectionListener() {
+//            public void valueChanged(ListSelectionEvent event) {
+//                mod_gName.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
+//                mod_gDate.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString());
+//                mod_gGenre.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString());
+//                mod_gRating.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 3).toString());
+//                mod_gStudio.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 4).toString());
+//                mod_gEngine.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 5).toString());
+//                mod_gPublisher.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 6).toString());
+//                mod_gFranchise.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 7).toString());
+//            }
+//        }
+//);
     }
 
     /**
@@ -58,14 +75,14 @@ public class VGDB_GUI extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
-        jTextField15 = new javax.swing.JTextField();
-        jTextField16 = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
+        mod_gName = new javax.swing.JTextField();
+        mod_gGenre = new javax.swing.JTextField();
+        mod_gDate = new javax.swing.JTextField();
+        mod_gFranchise = new javax.swing.JTextField();
+        mod_gRating = new javax.swing.JTextField();
+        mod_gStudio = new javax.swing.JTextField();
+        mod_gPublisher = new javax.swing.JTextField();
+        mod_gEngine = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -75,9 +92,9 @@ public class VGDB_GUI extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -144,26 +161,19 @@ public class VGDB_GUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(61, 61, 61)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jButton1))
-                                .addGap(0, 46, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jLabel4))
-                                    .addComponent(jLabel3))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(s_gameName, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                                    .addComponent(s_genre)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel4))
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(s_gameName, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                            .addComponent(s_genre)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 22, Short.MAX_VALUE)
                                 .addComponent(jLabel5))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -183,9 +193,18 @@ public class VGDB_GUI extends javax.swing.JFrame {
                                 .addComponent(s_engineName, javax.swing.GroupLayout.Alignment.TRAILING))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6)
-                        .addGap(80, 80, 80)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(80, 80, 80))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(40, 40, 40)))))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(47, 47, 47))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,20 +243,26 @@ public class VGDB_GUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(s_engineName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(31, 31, 31))
+                .addGap(32, 32, 32))
         );
 
         jLabel2.setText("Modify");
+        jLabel2.setToolTipText("");
 
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
+        mod_gName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
+                mod_gNameActionPerformed(evt);
             }
         });
 
         jButton2.setText("Submit Change");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel11.setText("Name");
 
@@ -255,106 +280,6 @@ public class VGDB_GUI extends javax.swing.JFrame {
 
         jLabel18.setText("Engine");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel12))
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.Alignment.LEADING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                    .addComponent(jTextField17, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(138, 138, 138))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(313, 313, 313))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(271, 271, 271))))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addGap(38, 38, 38)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16))
-                .addGap(46, 46, 46)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12)
-                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18))
-                .addGap(42, 42, 42)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17))
-                .addGap(42, 42, 42)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(38, 38, 38))
-        );
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Game ID", "Name", "Date Released", "Genre", "Rating", "Studio", "Engine", "Publisher", "Franchise"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
-
         jPanel3.setBackground(new java.awt.Color(83, 90, 92));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -368,24 +293,125 @@ public class VGDB_GUI extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel12))
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(mod_gGenre, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                            .addComponent(mod_gDate)
+                            .addComponent(mod_gRating)
+                            .addComponent(mod_gName))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(mod_gStudio, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                            .addComponent(mod_gEngine)
+                            .addComponent(mod_gPublisher)
+                            .addComponent(mod_gFranchise))
+                        .addGap(105, 105, 105))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(350, 350, 350))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(jButton2)
+                                .addGap(309, 309, 309))))))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addGap(38, 38, 38)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mod_gName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11)
+                    .addComponent(mod_gStudio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addGap(46, 46, 46)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mod_gGenre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12)
+                    .addComponent(mod_gEngine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18))
+                .addGap(42, 42, 42)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mod_gDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13)
+                    .addComponent(mod_gPublisher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
+                .addGap(42, 42, 42)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mod_gRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15)
+                    .addComponent(mod_gFranchise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(35, 35, 35))
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Name", "Date Released", "Genre", "Rating", "Studio", "Engine", "Publisher", "Franchise"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(24, 24, 24)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 869, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 972, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -423,7 +449,131 @@ public class VGDB_GUI extends javax.swing.JFrame {
         
         Connection conn = DriverManager.getConnection ("jdbc:mysql://localhost:3306/jjackson?user=jjackson&password=Amricap1");
 
-        String createString = "SELECT * FROM jjackson.Game";
+        String beginConstraint = "SELECT gameName, `Release Date`, Genre, ParentalRating, studioName, engineName, publisherName, franchiseName FROM jjackson.Game " +
+                                    "JOIN jjackson.Studio ON Game.Studio_idStudio = Studio.idStudio " +
+                                    "JOIN jjackson.`Engine` ON Game.Engine_idEngine = `Engine`.idEngine " +
+                                    "JOIN jjackson.Publisher ON Game.Publisher_idPublisher = Publisher.idPublisher " +
+                                    "JOIN jjackson.Franchise ON Game.Franchise_idFranchise = Franchise.idFranchise ";
+        Boolean isFirstCons = true;
+        
+        //-------------Search Name---------------------
+        
+        String nameCons = s_gameName.getText();
+        if(nameCons.length() == 0){
+            // Skip to next Contraint
+        }else{
+            nameCons = "WHERE Game.gameName LIKE '%" + nameCons + "%'";
+            isFirstCons = false;
+        }
+        
+        //-------------Search Genre---------------------
+        
+        String genreCons = s_genre.getText();
+        if(genreCons.length() == 0){
+            // Skip to next Contraint
+        }else{
+            if(isFirstCons == true){
+                genreCons = "WHERE Genre LIKE '%" + genreCons + "%' ";
+                isFirstCons = false;
+            }
+            else{
+                genreCons = "AND Genre LIKE '%" + genreCons + "%' ";
+            }
+        }
+        
+        //-------------Search Date---------------------
+        String dateCons = s_releaseDate.getText();
+        if(dateCons.length() == 0){
+            // Skip to next Contraint
+        }else{
+            if(isFirstCons == true){
+                dateCons = "WHERE `Release Date` LIKE '%" + dateCons + "%' ";
+                isFirstCons = false;
+            }
+            else{
+                dateCons = "AND `Release Date` LIKE '%" + dateCons + "%' ";
+            }
+        }
+        
+        //-------------Search Rating---------------------
+        String ratingCons = s_parentalRating.getText();
+        if(ratingCons.length() == 0){
+            // Skip to next Contraint
+        }else{
+            if(isFirstCons == true){
+                ratingCons = "WHERE ParentalRating LIKE '%" + ratingCons + "%' ";
+                isFirstCons = false;
+            }
+            else{
+                ratingCons = "AND ParentalRating LIKE '%" + ratingCons + "%' ";
+            }
+        }
+        //-------------Search Franchise---------------------
+        
+        String franchiseCons = s_franchiseName.getText();
+        if(franchiseCons.length() == 0){
+            // Skip to next Contraint
+        }else{
+            if(isFirstCons == true){
+                franchiseCons = "WHERE franchiseName LIKE '%" + franchiseCons + "%' ";
+                isFirstCons = false;
+            }
+            else{
+                franchiseCons = "AND franchiseName LIKE '%" + franchiseCons + "%' ";
+            }
+        }
+        
+        //-------------Search Studio---------------------
+        
+        String studioCons = s_studioName.getText();
+        if(studioCons.length() == 0){
+            // Skip to next Contraint
+        }else{
+            if(isFirstCons == true){
+                studioCons = "WHERE studioName LIKE '%" + studioCons + "%' ";
+                isFirstCons = false;
+            }
+            else{
+                studioCons = "AND studioName LIKE '%" + studioCons + "%' ";
+            }
+        }
+        
+        //-------------Search Publisher---------------------
+        
+        String publisherCons = s_publisherName.getText();
+        if(publisherCons.length() == 0){
+            // Skip to next Contraint
+        }else{
+            if(isFirstCons == true){
+                publisherCons = "WHERE publisherName LIKE '%" + publisherCons + "%' ";
+                isFirstCons = false;
+            }
+            else{
+                publisherCons = "AND publisherName LIKE '%" + publisherCons + "%' ";
+            }
+        }
+        
+        //-------------Search Engine---------------------
+        
+        String engineCons = s_engineName.getText();
+        if(engineCons.length() == 0){
+            // Skip to next Contraint
+        }else{
+            if(isFirstCons == true){
+                engineCons = "WHERE engineName LIKE '%" + engineCons + "%' ";
+                isFirstCons = false;
+            }
+            else{
+                engineCons = "AND engineName LIKE '%" + engineCons + "%' ";
+            }
+        }
+        
+        
+        String fullConstraint = beginConstraint + nameCons + genreCons
+                + dateCons + franchiseCons + ratingCons + studioCons
+                + publisherCons + engineCons; 
+        
+        String createString = fullConstraint;
 
         java.sql.Statement stmt = null;
 
@@ -455,14 +605,176 @@ public class VGDB_GUI extends javax.swing.JFrame {
         }
         
     }catch(SQLException ex){
-        System.out.println("Invalid SQL. The Error was:" + ex.getMessage());
+        System.out.println("Invalid SQL. The Error was: " + ex.getMessage());
     }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
+    private void mod_gNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mod_gNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
+    }//GEN-LAST:event_mod_gNameActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+        //TODO
+        //TODO
+        //TODO
+        
+//        try{
+//        
+//        Connection conn = DriverManager.getConnection ("jdbc:mysql://localhost:3306/jjackson?user=jjackson&password=Amricap1");
+//
+//
+//        Boolean isFirstCons = true;
+//        
+//        //-------------Search Name---------------------
+//        
+//        String nameCons = s_gameName.getText();
+//        if(nameCons.length() == 0){
+//            // Skip to next Contraint
+//        }else{
+//            nameCons = "WHERE Game.gameName LIKE '%" + nameCons + "%'";
+//        }
+//        
+//        //-------------Search Genre---------------------
+//        
+//        String genreCons = s_genre.getText();
+//        if(genreCons.length() == 0){
+//            // Skip to next Contraint
+//        }else{
+//                genreCons = "WHERE Genre LIKE '%" + genreCons + "%' ";
+//        }
+//        
+//        //-------------Search Date---------------------
+//        String dateCons = s_releaseDate.getText();
+//        if(dateCons.length() == 0){
+//            // Skip to next Contraint
+//        }else{
+//            if(isFirstCons == true){
+//                dateCons = "WHERE `Release Date` LIKE '%" + dateCons + "%' ";
+//                isFirstCons = false;
+//            }
+//            else{
+//                dateCons = "AND `Release Date` LIKE '%" + dateCons + "%' ";
+//            }
+//        }
+//        
+//        //-------------Search Rating---------------------
+//        String ratingCons = s_parentalRating.getText();
+//        if(ratingCons.length() == 0){
+//            // Skip to next Contraint
+//        }else{
+//            if(isFirstCons == true){
+//                ratingCons = "WHERE ParentalRating LIKE '%" + ratingCons + "%' ";
+//                isFirstCons = false;
+//            }
+//            else{
+//                ratingCons = "AND ParentalRating LIKE '%" + ratingCons + "%' ";
+//            }
+//        }
+//        //-------------Search Franchise---------------------
+//        
+//        String franchiseCons = s_franchiseName.getText();
+//        if(franchiseCons.length() == 0){
+//            // Skip to next Contraint
+//        }else{
+//            if(isFirstCons == true){
+//                franchiseCons = "WHERE franchiseName LIKE '%" + franchiseCons + "%' ";
+//                isFirstCons = false;
+//            }
+//            else{
+//                franchiseCons = "AND franchiseName LIKE '%" + franchiseCons + "%' ";
+//            }
+//        }
+//        
+//        //-------------Search Studio---------------------
+//        
+//        String studioCons = s_studioName.getText();
+//        if(studioCons.length() == 0){
+//            // Skip to next Contraint
+//        }else{
+//            if(isFirstCons == true){
+//                studioCons = "WHERE studioName LIKE '%" + studioCons + "%' ";
+//                isFirstCons = false;
+//            }
+//            else{
+//                studioCons = "AND studioName LIKE '%" + studioCons + "%' ";
+//            }
+//        }
+//        
+//        //-------------Search Publisher---------------------
+//        
+//        String publisherCons = s_publisherName.getText();
+//        if(publisherCons.length() == 0){
+//            // Skip to next Contraint
+//        }else{
+//            if(isFirstCons == true){
+//                publisherCons = "WHERE publisherName LIKE '%" + publisherCons + "%' ";
+//                isFirstCons = false;
+//            }
+//            else{
+//                publisherCons = "AND publisherName LIKE '%" + publisherCons + "%' ";
+//            }
+//        }
+//        
+//        //-------------Search Engine---------------------
+//        
+//        String engineCons = s_engineName.getText();
+//        if(engineCons.length() == 0){
+//            // Skip to next Contraint
+//        }else{
+//            if(isFirstCons == true){
+//                engineCons = "WHERE engineName LIKE '%" + engineCons + "%' ";
+//                isFirstCons = false;
+//            }
+//            else{
+//                engineCons = "AND engineName LIKE '%" + engineCons + "%' ";
+//            }
+//        }
+//        
+//        
+//        String fullConstraint = beginConstraint + nameCons + genreCons
+//                + dateCons + franchiseCons + ratingCons + studioCons
+//                + publisherCons + engineCons; 
+//        
+//        String createString = fullConstraint;
+//
+//        java.sql.Statement stmt = null;
+//
+//        try {
+//            
+//            stmt = conn.createStatement();
+//            ResultSet rs = stmt.executeQuery(createString);
+//            System.out.println("Query Success!!");
+//            
+//            //To remove previously added rows
+//            while(jTable1.getRowCount() > 0) 
+//            {
+//                ((DefaultTableModel) jTable1.getModel()).removeRow(0);
+//            }
+//            int columns = rs.getMetaData().getColumnCount();
+//            while(rs.next())
+//            {  
+//                Object[] row = new Object[columns];
+//                for (int i = 1; i <= columns; i++)
+//                {  
+//                    row[i - 1] = rs.getObject(i);
+//                }
+//                ((DefaultTableModel) jTable1.getModel()).insertRow(rs.getRow()-1,row);
+//            }
+//        }
+//
+//        finally {
+//            if (stmt != null) { stmt.close(); }
+//        }
+//        
+//    }catch(SQLException ex){
+//        System.out.println("Invalid SQL. The Error was: " + ex.getMessage());
+//    }
+//        
+//        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -525,14 +837,14 @@ public class VGDB_GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
+    private javax.swing.JTextField mod_gDate;
+    private javax.swing.JTextField mod_gEngine;
+    private javax.swing.JTextField mod_gFranchise;
+    private javax.swing.JTextField mod_gGenre;
+    private javax.swing.JTextField mod_gName;
+    private javax.swing.JTextField mod_gPublisher;
+    private javax.swing.JTextField mod_gRating;
+    private javax.swing.JTextField mod_gStudio;
     private javax.swing.JTextField s_engineName;
     private javax.swing.JTextField s_franchiseName;
     private javax.swing.JTextField s_gameName;
