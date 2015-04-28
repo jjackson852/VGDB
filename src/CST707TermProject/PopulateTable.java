@@ -28,13 +28,13 @@ public class PopulateTable extends CreateTable {
     try {
         stmt = conn.createStatement();
         stmt.executeUpdate(
-                "INSERT INTO `jjackson`.`Studio` (`studioName`, `dateFounded`, `Founder`, `WebsiteURL`, `Emp Count`) VALUES ('Treyarch', '06-05-2002', 'Simon Sam', 'http://www.treyarch.com', '400');");
+                "INSERT INTO `jjackson`.`Studio` (`studioName`, `dateFounded`, `Founder`, `WebsiteURL`, `Emp Count`) VALUES ('Treyarch', '06-05-2002', 'Simon Sam', 'treyarch.com', '400');");
         stmt.executeUpdate(
-                "INSERT INTO `jjackson`.`Studio` (`studioName`, `dateFounded`, `Founder`, `WebsiteURL`, `Emp Count`) VALUES ('Sledgehammer Games', '25-07-2010', 'Phillip Sledge', 'http://www.sledgehammer.com', '300');");
+                "INSERT INTO `jjackson`.`Studio` (`studioName`, `dateFounded`, `Founder`, `WebsiteURL`, `Emp Count`) VALUES ('Sledgehammer Games', '25-07-2010', 'Phillip Sledge', 'sledgehammer.com', '300');");
         stmt.executeUpdate(
-                "INSERT INTO `jjackson`.`Studio` (`studioName`, `dateFounded`, `Founder`, `WebsiteURL`, `Emp Count`) VALUES ('DICE', '20-09-2001', 'Robert Hammilton', 'http://www.dice.com', '700');");        
+                "INSERT INTO `jjackson`.`Studio` (`studioName`, `dateFounded`, `Founder`, `WebsiteURL`, `Emp Count`) VALUES ('DICE', '20-09-2001', 'Robert Hammilton', 'dice.com', '700');");        
         stmt.executeUpdate(
-                "INSERT INTO `jjackson`.`Studio` (`studioName`, `dateFounded`, `Founder`, `WebsiteURL`, `Emp Count`) VALUES ('343 Industries', '13-03-2011', 'Crystal Renee', 'http://www.343i.com', '450');");
+                "INSERT INTO `jjackson`.`Studio` (`studioName`, `dateFounded`, `Founder`, `WebsiteURL`, `Emp Count`) VALUES ('343 Industries', '13-03-2011', 'Crystal Renee', '343i.com', '450');");
         }  
     
     finally {
@@ -72,13 +72,13 @@ public class PopulateTable extends CreateTable {
     try {
         stmt = conn.createStatement();
         stmt.executeUpdate(
-                "INSERT INTO `jjackson`.`Publisher` (`publisherName`, `dateFounded`, `websiteURL`) VALUES ('Electronic Arts', '04-05-1992', 'http://www.ea.com');");
+                "INSERT INTO `jjackson`.`Publisher` (`publisherName`, `dateFounded`, `websiteURL`) VALUES ('Electronic Arts', '04-05-1992', 'ea.com');");
         stmt.executeUpdate(
-                "INSERT INTO `jjackson`.`Publisher` (`publisherName`, `dateFounded`, `websiteURL`) VALUES ('Activision', '07-07-1997', 'http://www.activision.com');");
+                "INSERT INTO `jjackson`.`Publisher` (`publisherName`, `dateFounded`, `websiteURL`) VALUES ('Activision', '07-07-1997', 'activision.com');");
         stmt.executeUpdate(
-                "INSERT INTO `jjackson`.`Publisher` (`publisherName`, `dateFounded`, `websiteURL`) VALUES ('Ubisoft', '09-17-2000', 'http://www.ubisoft.com);");
+                "INSERT INTO `jjackson`.`Publisher` (`publisherName`, `dateFounded`, `websiteURL`) VALUES ('Ubisoft', '09-17-2000', 'ubisoft.com');");
         stmt.executeUpdate(
-                "INSERT INTO `jjackson`.`Publisher` (`publisherName`, `dateFounded`, `websiteURL`) VALUES ('Microsoft Studios', '20-10-2001', 'http://microsoft.com');");
+                "INSERT INTO `jjackson`.`Publisher` (`publisherName`, `dateFounded`, `websiteURL`) VALUES ('Microsoft Studios', '20-10-2001', 'microsoft.com');");
                 }  
     
     finally {
@@ -206,11 +206,11 @@ public void populateREVIEW() throws SQLException{
     try {
         stmt = conn.createStatement();
         stmt.executeUpdate(
-                "INSERT INTO `jjackson`.`Review` (`Rating`, `Subject`, `Content`, `URL`, `Game_idGame`) VALUES ('.75', 'BATTLEFIELD 4 REVIEW: BULLET DROP', 'Developer DICE is moving the series towards bigger, well, battlefields — more vehicles, more emergent spectacle, more teamwork. And DICE seems determined to keep everything that has defined the series over the last three years and four game releases. It sounds like a great idea, and in execution Battlefield 4 is as successful as ever at the emergent, bombastic play that\\'s defined the series. But there are baggage-related bumps along the way.', 'http://www.polygon.com/2013/10/29/5040656/battlefield-4-review', '1');");
+                "INSERT INTO `jjackson`.`Review` (`Rating`, `Subject`, `Content`, `URL`, `Game_idGame`) VALUES ('.75', 'BATTLEFIELD 4 REVIEW: BULLET DROP', 'Developer DICE is moving the series towards bigger, well, battlefields — more vehicles, more emergent spectacle, more teamwork. And DICE seems determined to keep everything that has defined the series over the last three years and four game releases. It sounds like a great idea, and in execution Battlefield 4 is as successful as ever at the emergent, bombastic play that\\'s defined the series. But there are baggage-related bumps along the way.', 'polygon.com/2013/10/29/5040656/battlefield-4-review', '1');");
         stmt.executeUpdate(
-                "INSERT INTO `jjackson`.`Review` (`Rating`, `Subject`, `Content`, `URL`, `Game_idGame`) VALUES ('.85', '64 STYLES OF DANGER.', 'Battlefield 4 is a greatest hits album of DICE’s multiplayer first-person shooter legacy. It retains the defining DNA of Battlefield 1942, re-adopts Battlefield 2’s brilliant Commander mode, and exaggerates the destruction of Battlefield: Bad Company 2, all while embracing the realism, class reorganization, and gorgeous graphics of Battlefield 3. Most of the time, Battlefield’s unpredictable, vehicular-based competitive combat is predictably excellent. What I didn’t anticipate was DICE getting in its own way.', 'http://www.ign.com/articles/2013/11/26/battlefield-4-xbox-one-review', '1');");
+                "INSERT INTO `jjackson`.`Review` (`Rating`, `Subject`, `Content`, `URL`, `Game_idGame`) VALUES ('.85', '64 STYLES OF DANGER.', 'Battlefield 4 is a greatest hits album of DICE’s multiplayer first-person shooter legacy. It retains the defining DNA of Battlefield 1942, re-adopts Battlefield 2’s brilliant Commander mode, and exaggerates the destruction of Battlefield: Bad Company 2, all while embracing the realism, class reorganization, and gorgeous graphics of Battlefield 3. Most of the time, Battlefield’s unpredictable, vehicular-based competitive combat is predictably excellent. What I didn’t anticipate was DICE getting in its own way.', 'ign.com/articles/2013/11/26/battlefield-4-xbox-one-review', '1');");
         stmt.executeUpdate(
-                "INSERT INTO `jjackson`.`Review` (`Rating`, `Subject`, `Content`, `URL`, `Game_idGame`) VALUES ('.80', 'COD: Black Ops Review', 'Although Call of Duty: Black Ops may have a lot familiar to fans of the series, Treyarch has pushed a lot of the right buttons and has made the best Call of Duty game to date.', 'http://www.darkstation.com/reviews/xbox-360/call-of-duty-black-ops/', '3');");
+                "INSERT INTO `jjackson`.`Review` (`Rating`, `Subject`, `Content`, `URL`, `Game_idGame`) VALUES ('.80', 'COD: Black Ops Review', 'Although Call of Duty: Black Ops may have a lot familiar to fans of the series, Treyarch has pushed a lot of the right buttons and has made the best Call of Duty game to date.', 'www.darkstation.com/reviews/xbox-360/call-of-duty-black-ops/', '3');");
                 }  
     
     finally {

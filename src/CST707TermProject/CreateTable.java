@@ -29,7 +29,7 @@ public class CreateTable extends jdbc_example {
         String createString = "CREATE  TABLE IF NOT EXISTS "+ dbName +".`Studio` (" +
                                 "`idStudio` INT NOT NULL AUTO_INCREMENT ," +
                                 "`studioName` VARCHAR(45) NULL ," +
-                                "`dateFounded` DATE NULL ," +
+                                "`dateFounded` VARCHAR(15) NULL ," +
                                 "`Founder` VARCHAR(45) NULL ," +
                                 "`WebsiteURL` VARCHAR(45) NULL ," +
                                 "`Emp Count` VARCHAR(45) NULL ," +
@@ -56,7 +56,7 @@ public class CreateTable extends jdbc_example {
         String createString = "CREATE  TABLE IF NOT EXISTS "+ dbName +".`Engine` (" +
                                 "`idEngine` INT NOT NULL AUTO_INCREMENT ," +
                                 "`engineName` VARCHAR(45) NULL ," +
-                                "`initialReleaseDate` DATE NULL ," +
+                                "`initialReleaseDate` VARCHAR(45) NULL ," +
                                 "`isCommercial` TINYINT(1) NULL ," +
                                 "`Maker` VARCHAR(45) NULL ," +
                                 "`Language` VARCHAR(15) NULL ," +
@@ -84,7 +84,7 @@ public class CreateTable extends jdbc_example {
         String createString = "CREATE  TABLE IF NOT EXISTS "+ dbName +".`Publisher` (" +
                                 "`idPublisher` INT NOT NULL AUTO_INCREMENT ," +
                                 "`publisherName` VARCHAR(45) NULL ," +
-                                "`dateFounded` DATE NULL ," +
+                                "`dateFounded` VARCHAR(45) NULL ," +
                                 "`websiteURL` VARCHAR(45) NULL ," +
                                 "PRIMARY KEY (`idPublisher`) ," +
                                 "UNIQUE INDEX `idPublisher_UNIQUE` (`idPublisher` ASC) )" +
@@ -262,7 +262,7 @@ public class CreateTable extends jdbc_example {
                                 "`Rating` DECIMAL(4,3) NULL ," +
                                 "`Subject` VARCHAR(45) NULL ," +
                                 "`Content` LONGTEXT NULL ," +
-                                "`URL` VARCHAR(45) NULL ," +
+                                "`URL` VARCHAR(150) NULL ," +
                                 "`Game_idGame` INT NOT NULL ," +
                                 "PRIMARY KEY (`idReview`) ," +
                                 "UNIQUE INDEX `idReview_UNIQUE` (`idReview` ASC) ," +
@@ -363,18 +363,18 @@ public class CreateTable extends jdbc_example {
         
         Connection conn = DriverManager.getConnection (url);
         
-        String createString = "drop table " + dbName +
-                              ".Game_has_Employee " + "drop table " + dbName +
-                              ".Game_has_Platform " + "drop table " + dbName +
-                              ".Review "+ "drop table " + dbName +
-                              ".Title " + "drop table " + dbName +
-                              ".Employee " + "drop table " + dbName +
-                              ".Platform " + "drop table " + dbName +
-                              ".Game " + "drop table " + dbName +
-                              ".Franchise " + "drop table " + dbName +
-                              ".Publisher " + "drop table " + dbName +
-                              ".Engine " + "drop table " + dbName +
-                              ".Studio " ;
+        String createString = "DROP TABLE " + dbName +
+                              ".`Game_has_Employee` " + ", " + dbName +
+                              ".`Game_has_Platform` " + ", " + dbName +
+                              ".`Review` "+ ", " + dbName +
+                              ".`Title` " + ", " + dbName +
+                              ".`Employee` " + ", " + dbName +
+                              ".`Platform` " + ", " + dbName +
+                              ".`Game` " + ", " + dbName +
+                              ".`Franchise` " + ", " + dbName +
+                              ".`Publisher` " + ", " + dbName +
+                              ".`Engine` " + ", " + dbName +
+                              ".`Studio` " ;
         java.sql.Statement stmt = null;
         
     try {
