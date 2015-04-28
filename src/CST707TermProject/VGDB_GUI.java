@@ -11,7 +11,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Vector;
+import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
@@ -29,20 +31,36 @@ public class VGDB_GUI extends javax.swing.JFrame {
     public VGDB_GUI() {
         initComponents();
         
-//        jTable1.getSelectionModel().addListSelectionListener(
-//        new ListSelectionListener() {
-//            public void valueChanged(ListSelectionEvent event) {
-//                mod_gName.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
-//                mod_gDate.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString());
-//                mod_gGenre.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString());
-//                mod_gRating.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 3).toString());
-//                mod_gStudio.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 4).toString());
-//                mod_gEngine.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 5).toString());
-//                mod_gPublisher.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 6).toString());
-//                mod_gFranchise.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 7).toString());
-//            }
-//        }
-//);
+        jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        
+        jTable1.getSelectionModel().addListSelectionListener(
+        new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent event) {
+
+                try{
+                mod_gName.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());             
+                mod_gDate.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString());
+                mod_gGenre.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString());
+                mod_gRating.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 3).toString());
+                mod_gStudio.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 4).toString());
+                mod_gEngine.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 5).toString());
+                mod_gPublisher.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 6).toString());
+                mod_gFranchise.setText(jTable1.getValueAt(jTable1.getSelectedRow(), 7).toString());
+                
+                }
+                catch(ArrayIndexOutOfBoundsException ex){
+                    mod_gName.setText("");
+                    mod_gDate.setText("");
+                    mod_gGenre.setText("");
+                    mod_gRating.setText("");
+                    mod_gStudio.setText("");
+                    mod_gEngine.setText("");
+                    mod_gPublisher.setText("");
+                    mod_gFranchise.setText("");
+                }
+            }
+        }
+);
     }
 
     /**
@@ -93,6 +111,7 @@ public class VGDB_GUI extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -293,6 +312,13 @@ public class VGDB_GUI extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        jButton4.setText("Remove Game");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -300,6 +326,10 @@ public class VGDB_GUI extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 372, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addGap(350, 350, 350))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(84, 84, 84)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,33 +339,31 @@ public class VGDB_GUI extends javax.swing.JFrame {
                             .addComponent(jLabel13)
                             .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(mod_gGenre, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
-                            .addComponent(mod_gDate)
-                            .addComponent(mod_gRating)
-                            .addComponent(mod_gName))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(mod_gGenre, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                                .addComponent(mod_gDate)
+                                .addComponent(mod_gRating)
+                                .addComponent(mod_gName))
+                            .addComponent(jButton2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(mod_gStudio, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
-                            .addComponent(mod_gEngine)
-                            .addComponent(mod_gPublisher)
-                            .addComponent(mod_gFranchise))
-                        .addGap(105, 105, 105))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(mod_gStudio, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                                    .addComponent(mod_gEngine)
+                                    .addComponent(mod_gPublisher)
+                                    .addComponent(mod_gFranchise)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(350, 350, 350))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jButton2)
-                                .addGap(309, 309, 309))))))
+                                .addComponent(jButton4)
+                                .addGap(26, 26, 26)))
+                        .addGap(105, 105, 105))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -367,21 +395,16 @@ public class VGDB_GUI extends javax.swing.JFrame {
                     .addComponent(mod_gFranchise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(35, 35, 35))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton4))
+                .addGap(32, 32, 32))
             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Name", "Date Released", "Genre", "Rating", "Studio", "Engine", "Publisher", "Franchise"
@@ -444,17 +467,23 @@ public class VGDB_GUI extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         //String q_gameName = s_gameName.getText();
-        
+    
+    gameIds = new ArrayList<Integer>();
+    
     try{
+
+       
         
         Connection conn = DriverManager.getConnection ("jdbc:mysql://localhost:3306/jjackson?user=jjackson&password=Amricap1");
 
-        String beginConstraint = "SELECT gameName, `Release Date`, Genre, ParentalRating, studioName, engineName, publisherName, franchiseName FROM jjackson.Game " +
-                                    "JOIN jjackson.Studio ON Game.Studio_idStudio = Studio.idStudio " +
-                                    "JOIN jjackson.`Engine` ON Game.Engine_idEngine = `Engine`.idEngine " +
-                                    "JOIN jjackson.Publisher ON Game.Publisher_idPublisher = Publisher.idPublisher " +
+        String beginConstraint = "SELECT gameName, `Release Date`, Genre, ParentalRating, studioName, engineName, publisherName, franchiseName, idGame FROM jjackson.Game\n " +
+                                    "JOIN jjackson.Studio ON Game.Studio_idStudio = Studio.idStudio\n " +
+                                    "JOIN jjackson.`Engine` ON Game.Engine_idEngine = `Engine`.idEngine\n " +
+                                    "JOIN jjackson.Publisher ON Game.Publisher_idPublisher = Publisher.idPublisher\n " +
                                     "JOIN jjackson.Franchise ON Game.Franchise_idFranchise = Franchise.idFranchise ";
         Boolean isFirstCons = true;
+        
+        
         
         //-------------Search Name---------------------
         
@@ -574,6 +603,7 @@ public class VGDB_GUI extends javax.swing.JFrame {
                 + publisherCons + engineCons; 
         
         String createString = fullConstraint;
+        System.out.println(fullConstraint);
 
         java.sql.Statement stmt = null;
 
@@ -589,6 +619,7 @@ public class VGDB_GUI extends javax.swing.JFrame {
                 ((DefaultTableModel) jTable1.getModel()).removeRow(0);
             }
             int columns = rs.getMetaData().getColumnCount();
+//            int j =0;
             while(rs.next())
             {  
                 Object[] row = new Object[columns];
@@ -597,6 +628,9 @@ public class VGDB_GUI extends javax.swing.JFrame {
                     row[i - 1] = rs.getObject(i);
                 }
                 ((DefaultTableModel) jTable1.getModel()).insertRow(rs.getRow()-1,row);
+                gameIds.add(rs.getInt("idGame"));
+//                System.out.println(gameIds.get(j));
+//                j++;
             }
         }
 
@@ -607,7 +641,8 @@ public class VGDB_GUI extends javax.swing.JFrame {
     }catch(SQLException ex){
         System.out.println("Invalid SQL. The Error was: " + ex.getMessage());
     }
-        
+    
+    
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void mod_gNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mod_gNameActionPerformed
@@ -616,165 +651,198 @@ public class VGDB_GUI extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        //TODO
+        //TODO
+        //TODO
+//        modGname = mod_gName.getText();
         
-        //TODO
-        //TODO
-        //TODO
+        //jTable1.getSelectionModel().clearSelection();
         
-//        try{
-//        
-//        Connection conn = DriverManager.getConnection ("jdbc:mysql://localhost:3306/jjackson?user=jjackson&password=Amricap1");
-//
-//
-//        Boolean isFirstCons = true;
-//        
-//        //-------------Search Name---------------------
-//        
-//        String nameCons = s_gameName.getText();
-//        if(nameCons.length() == 0){
-//            // Skip to next Contraint
-//        }else{
-//            nameCons = "WHERE Game.gameName LIKE '%" + nameCons + "%'";
-//        }
-//        
-//        //-------------Search Genre---------------------
-//        
-//        String genreCons = s_genre.getText();
-//        if(genreCons.length() == 0){
-//            // Skip to next Contraint
-//        }else{
-//                genreCons = "WHERE Genre LIKE '%" + genreCons + "%' ";
-//        }
-//        
-//        //-------------Search Date---------------------
-//        String dateCons = s_releaseDate.getText();
-//        if(dateCons.length() == 0){
-//            // Skip to next Contraint
-//        }else{
-//            if(isFirstCons == true){
-//                dateCons = "WHERE `Release Date` LIKE '%" + dateCons + "%' ";
-//                isFirstCons = false;
-//            }
-//            else{
-//                dateCons = "AND `Release Date` LIKE '%" + dateCons + "%' ";
-//            }
-//        }
-//        
-//        //-------------Search Rating---------------------
-//        String ratingCons = s_parentalRating.getText();
-//        if(ratingCons.length() == 0){
-//            // Skip to next Contraint
-//        }else{
-//            if(isFirstCons == true){
-//                ratingCons = "WHERE ParentalRating LIKE '%" + ratingCons + "%' ";
-//                isFirstCons = false;
-//            }
-//            else{
-//                ratingCons = "AND ParentalRating LIKE '%" + ratingCons + "%' ";
-//            }
-//        }
-//        //-------------Search Franchise---------------------
-//        
-//        String franchiseCons = s_franchiseName.getText();
-//        if(franchiseCons.length() == 0){
-//            // Skip to next Contraint
-//        }else{
-//            if(isFirstCons == true){
-//                franchiseCons = "WHERE franchiseName LIKE '%" + franchiseCons + "%' ";
-//                isFirstCons = false;
-//            }
-//            else{
-//                franchiseCons = "AND franchiseName LIKE '%" + franchiseCons + "%' ";
-//            }
-//        }
-//        
-//        //-------------Search Studio---------------------
-//        
-//        String studioCons = s_studioName.getText();
-//        if(studioCons.length() == 0){
-//            // Skip to next Contraint
-//        }else{
-//            if(isFirstCons == true){
-//                studioCons = "WHERE studioName LIKE '%" + studioCons + "%' ";
-//                isFirstCons = false;
-//            }
-//            else{
-//                studioCons = "AND studioName LIKE '%" + studioCons + "%' ";
-//            }
-//        }
-//        
-//        //-------------Search Publisher---------------------
-//        
-//        String publisherCons = s_publisherName.getText();
-//        if(publisherCons.length() == 0){
-//            // Skip to next Contraint
-//        }else{
-//            if(isFirstCons == true){
-//                publisherCons = "WHERE publisherName LIKE '%" + publisherCons + "%' ";
-//                isFirstCons = false;
-//            }
-//            else{
-//                publisherCons = "AND publisherName LIKE '%" + publisherCons + "%' ";
-//            }
-//        }
-//        
-//        //-------------Search Engine---------------------
-//        
-//        String engineCons = s_engineName.getText();
-//        if(engineCons.length() == 0){
-//            // Skip to next Contraint
-//        }else{
-//            if(isFirstCons == true){
-//                engineCons = "WHERE engineName LIKE '%" + engineCons + "%' ";
-//                isFirstCons = false;
-//            }
-//            else{
-//                engineCons = "AND engineName LIKE '%" + engineCons + "%' ";
-//            }
-//        }
-//        
-//        
-//        String fullConstraint = beginConstraint + nameCons + genreCons
-//                + dateCons + franchiseCons + ratingCons + studioCons
-//                + publisherCons + engineCons; 
-//        
-//        String createString = fullConstraint;
-//
-//        java.sql.Statement stmt = null;
-//
-//        try {
-//            
-//            stmt = conn.createStatement();
-//            ResultSet rs = stmt.executeQuery(createString);
-//            System.out.println("Query Success!!");
-//            
-//            //To remove previously added rows
-//            while(jTable1.getRowCount() > 0) 
-//            {
-//                ((DefaultTableModel) jTable1.getModel()).removeRow(0);
-//            }
-//            int columns = rs.getMetaData().getColumnCount();
-//            while(rs.next())
-//            {  
-//                Object[] row = new Object[columns];
-//                for (int i = 1; i <= columns; i++)
-//                {  
-//                    row[i - 1] = rs.getObject(i);
-//                }
-//                ((DefaultTableModel) jTable1.getModel()).insertRow(rs.getRow()-1,row);
-//            }
-//        }
-//
-//        finally {
-//            if (stmt != null) { stmt.close(); }
-//        }
-//        
-//    }catch(SQLException ex){
-//        System.out.println("Invalid SQL. The Error was: " + ex.getMessage());
-//    }
-//        
-//        
+        try{
+        
+        Connection conn = DriverManager.getConnection ("jdbc:mysql://localhost:3306/jjackson?user=jjackson&password=Amricap1");
+
+        String beginConstraint = "UPDATE `jjackson`.`Game` " +
+                                    "JOIN `jjackson`.`Studio` ON Game.Studio_idStudio = Studio.idStudio\n " +
+                                    "\tJOIN `jjackson`.`Engine` ON Game.Engine_idEngine = `Engine`.idEngine\n " +
+                                    "\tJOIN `jjackson`.`Publisher` ON Game.Publisher_idPublisher = Publisher.idPublisher\n " +
+                                    "\tJOIN `jjackson`.`Franchise` ON Game.Franchise_idFranchise = Franchise.idFranchise \n\tSET ";
+        Boolean isFirstCons = true;
+        
+        //-------------Search Name---------------------
+        
+        String nameCons = mod_gName.getText();
+//            System.out.println(nameCons.toUpperCase());
+        if(nameCons.length() == 0){
+            // Skip to next Contraint
+        }else{
+            nameCons = "`Game`.gameName='" + nameCons + "'";
+            isFirstCons = false;
+        }
+        
+        //-------------Search Genre---------------------
+        
+        String genreCons = mod_gGenre.getText();
+        if(genreCons.length() == 0){
+            // Skip to next Contraint
+        }else{
+            if(isFirstCons == true){
+                genreCons = "`Game`.Genre='" + genreCons + "'";
+                isFirstCons = false;
+            }
+            else{
+                genreCons = ", `Game`.Genre='" + genreCons + "'";
+            }
+        }
+        
+        //-------------Search Date---------------------
+        String dateCons = mod_gDate.getText();
+        if(dateCons.length() == 0){
+            // Skip to next Contraint
+        }else{
+            if(isFirstCons == true){
+                dateCons = "`Game`.`Release Date`='" + dateCons + "'";
+                isFirstCons = false;
+            }
+            else{
+                dateCons = ", `Game`.`Release Date`='" + dateCons + "'";
+            }
+        }
+        
+        //-------------Search Rating---------------------
+        String ratingCons = mod_gRating.getText();
+        if(ratingCons.length() == 0){
+            // Skip to next Contraint
+        }else{
+            if(isFirstCons == true){
+                ratingCons = "`Game`.ParentalRating='" + ratingCons + "'";
+                isFirstCons = false;
+            }
+            else{
+                ratingCons = ", `Game`.ParentalRating='" + ratingCons + "'";
+            }
+        }
+        //-------------Search Franchise---------------------
+        
+        String franchiseCons = mod_gFranchise.getText();
+        if(franchiseCons.length() == 0){
+            // Skip to next Contraint
+        }else{
+            if(isFirstCons == true){
+                franchiseCons = "`Franchise`.franchiseName='" + franchiseCons + "'";
+                isFirstCons = false;
+            }
+            else{
+                franchiseCons = ", `Franchise`.franchiseName='" + franchiseCons + "'";
+            }
+        }
+        
+        //-------------Search Studio---------------------
+        
+        String studioCons = mod_gStudio.getText();
+        if(studioCons.length() == 0){
+            // Skip to next Contraint
+        }else{
+            if(isFirstCons == true){
+                studioCons = "`Studio`.studioName='" + studioCons + "'";
+                isFirstCons = false;
+            }
+            else{
+                studioCons = ", `Studio`.studioName='" + studioCons + "'";
+            }
+        }
+        
+        //-------------Search Publisher---------------------
+        
+        String publisherCons = mod_gPublisher.getText();
+        if(publisherCons.length() == 0){
+            // Skip to next Contraint
+        }else{
+            if(isFirstCons == true){
+                publisherCons = "`Publisher`.publisherName='" + publisherCons + "'";
+                isFirstCons = false;
+            }
+            else{
+                publisherCons = ", `Publisher`.publisherName='" + publisherCons + "'";
+            }
+        }
+        
+        //-------------Search Engine---------------------
+        
+        String engineCons = mod_gEngine.getText();
+        if(engineCons.length() == 0){
+            // Skip to next Contraint
+        }else{
+            if(isFirstCons == true){
+                engineCons = "`Engine`.engineName='" + engineCons + "'";
+                isFirstCons = false;
+            }
+            else{
+                engineCons = ", `Engine`.engineName='" + engineCons + "'";
+            }
+        }
+
+        String fullConstraint = beginConstraint + nameCons + genreCons
+                + dateCons + franchiseCons + ratingCons + studioCons
+                + publisherCons + engineCons + " WHERE Game.idGame = " + gameIds.get(jTable1.getSelectedRow()).toString(); 
+        
+            System.out.println(fullConstraint);
+        String createString = fullConstraint;
+
+        java.sql.Statement stmt = null;
+
+        try {
+            
+            stmt = conn.createStatement();
+            stmt.executeUpdate(createString);
+            System.out.println("Query Success!!");
+            
+            
+        }
+
+        finally {
+            if (stmt != null) { stmt.close(); }
+        }
+        
+    }catch(SQLException ex){
+        System.out.println("Invalid SQL. The Error was: " + ex.getMessage());
+    }
+        
+        
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        
+        
+        try{
+        
+        Connection conn = DriverManager.getConnection ("jdbc:mysql://localhost:3306/jjackson?user=jjackson&password=Amricap1");
+        
+
+        String fullConstraint = "DELETE FROM `jjackson`.`Game` WHERE Game.idGame = " + gameIds.get(jTable1.getSelectedRow()).toString(); 
+
+        String createString = fullConstraint;
+
+        java.sql.Statement stmt = null;
+
+        try {
+            
+            stmt = conn.createStatement();
+            stmt.executeUpdate(createString);
+            System.out.println("Query Success!!");
+            
+            
+        }
+
+        finally {
+            if (stmt != null) { stmt.close(); }
+        }
+        
+    }catch(SQLException ex){
+        System.out.println("Invalid SQL. The Error was: " + ex.getMessage());
+    }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -810,10 +878,14 @@ public class VGDB_GUI extends javax.swing.JFrame {
             }
         });
     }
+    
+    private ArrayList<Integer> gameIds;
+    private String modGname;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
