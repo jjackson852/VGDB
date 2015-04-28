@@ -46,16 +46,17 @@ public class jdbc_example
 //  tableCreator.createGame_has_PlatformTable();
 //  tableCreator.createGame_has_EmployeeTable();
 //  
-//  tablePopulator.populateAirportTable();
-//  tablePopulator.populateAirlineTable();
-//  tablePopulator.populatePlaneTable();
-//  tablePopulator.populateFlightTable();
-//  tablePopulator.populateCustomerTable();
-//  tablePopulator.populatePmtMethodTable();
-//  tablePopulator.populateReservationTable();
-//  tablePopulator.populateFFMembershipTable();
-//  tablePopulator.populateFlightLegTable();
-//  tablePopulator.populatePreferencesTable();
+//  tablePopulator.populateSTUDIO();
+//  tablePopulator.populateENGINE();
+//  tablePopulator.populatePUBLISHER();
+//  tablePopulator.populateFRANCHISE();
+//  tablePopulator.populateGAME();
+//  tablePopulator.populatePLATFORM();
+//  tablePopulator.populateEMPLOYEE();
+//  tablePopulator.populateTITLE();
+//  tablePopulator.populateREVIEW();
+//  tablePopulator.populateGAMEPLATFORM();
+//  tablePopulator.populateGAMEEMPLOYEE();
 //  
 //  
 //  queryGenerator.queryNumber1();
